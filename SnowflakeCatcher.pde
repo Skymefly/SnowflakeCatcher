@@ -1,5 +1,6 @@
 boolean ismoving;
 Snowflake [] snow;
+int opp;
 void setup()
 {
   //your code here
@@ -46,13 +47,16 @@ class Snowflake
   void show()
   {
     //your code here
+    //int opp=1000;
+    //fill(255,255,255, opp);
+    noStroke();
     fill(255);
     ellipse(myX,myY,5,5);
   }
   void lookDown()
   {
     //your code here
-    if(get(myX,myY+4)==color(0) && myY<396 && myY>=0)
+    if(get(myX,myY+4)!=color(241,141,132) && myY<=396 && myY>=0)
     {
       ismoving=true;
     }
@@ -72,11 +76,15 @@ class Snowflake
     {
       myY++;
     }
+    if(ismoving==false)
+    {
+      
+    }
   }
   void wrap()
   {
     //your code here
-    if (myY==405)
+    if (myY==396)
     {
       myY=0;
       myX=((int)((Math.random()*400)+1));
